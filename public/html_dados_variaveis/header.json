@@ -4,31 +4,31 @@
     "menu_links": [
         {
             "texto": "Início",
-            "href": "index.html"
+            "href": "/"
         },
         {
             "texto": "Flora Brasil",
-            "href": "flora_brasil.html"
+            "href": "/flora_brasil"
         },
         {
             "texto": "Catálogo",
-            "href": "login.html"
+            "href": "/catalogo"
         },
         {
             "texto": "Metodologia",
-            "href": "metodologia.html"
+            "href": "/metodologia"
         },
         {
             "texto": "Contato",
-            "href": "contato.html"
+            "href": "/contato"
         },
         {
             "texto": "Sobre",
-            "href": "sobre.html"
+            "href": "/sobre"
         },
         {
             "texto": "Admin Login",
-            "href": "admin_login.html"
+            "href": "/admin_login"
         }
     ]
 }

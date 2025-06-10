@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [header, setHeader] = useState(null);
@@ -35,7 +36,7 @@ function Home() {
         <nav>
           <ul id="menu-links">
             {header?.menu_links?.map((link, idx) => (
-              <li key={idx}><a href={link.href}>{link.texto}</a></li>
+              <li key={idx}><Link to={link.href}>{link.texto}</Link></li>
             ))}
           </ul>
         </nav>
@@ -44,7 +45,7 @@ function Home() {
         <h1 id="banner-titulo">{banner?.titulo}</h1>
         <p id="banner-descricao">{banner?.descricao}</p>
         {banner?.botao_texto ? (
-          <a id="banner-botao" className="botao" href={banner.botao_link}>{banner.botao_texto}</a>
+          <Link id="banner-botao" className="botao" to={banner.botao_link}>{banner.botao_texto}</Link>
         ) : null}
       </section>
       <section className="destaques" id="destaques-section">
@@ -64,7 +65,7 @@ function Home() {
               <div className="category" key={idx}>
                 <h3>{cat.titulo}</h3>
                 <p>{cat.descricao}</p>
-                <a className="btn" href={cat.href}>{cat.link_texto}</a>
+                <Link className="btn" to={cat.href}>{cat.link_texto}</Link>
               </div>
             ))}
           </div>

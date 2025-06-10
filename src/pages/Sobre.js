@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import HeaderFooterLayout from '../components/HeaderFooterLayout';
 
 function Sobre() {
   const [sobre, setSobre] = useState(null);
@@ -10,8 +11,7 @@ function Sobre() {
   }, []);
 
   return (
-    <div className="sobre">
-      <h1>{sobre?.titulo}</h1>
+    <HeaderFooterLayout pageTitle={sobre?.titulo || 'Sobre'}>
       <p>{sobre?.descricao}</p>
       <section className="missao">
         <h2>Missão</h2>
@@ -35,7 +35,7 @@ function Sobre() {
           </div>
         </div>
       </section>
-    </div>
+    </HeaderFooterLayout>
   );
 }
 

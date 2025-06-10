@@ -1474,3 +1474,91 @@ section#lista-familias .card {
     to { opacity: 1; transform: none; }
 }
 
+/* RESPONSIVIDADE GLOBAL */
+@media (max-width: 1024px) {
+  header, .container, .contato-container, .cadastro-container, .metodologia-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .familias-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .categoria_personas {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .category {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .container table {
+    min-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 10px 5px;
+    gap: 10px;
+  }
+  .logo {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 18px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .banner h1 {
+    font-size: 1.5rem;
+  }
+  .banner p {
+    font-size: 1rem;
+  }
+  .destaques {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .colaborador .section {
+    padding: 10px 0;
+  }
+  .familias-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container, .contato-container, .cadastro-container, .metodologia-container {
+    padding: 5px;
+    max-width: 100vw;
+  }
+  .card, .category {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+  .banner h1 {
+    font-size: 1.1rem;
+  }
+  .banner p {
+    font-size: 0.95rem;
+  }
+  .input-group input, .input-group textarea {
+    font-size: 0.9em;
+  }
+  .botao, .btn, .login-btn {
+    font-size: 0.95em;
+    padding: 8px 12px;
+  }
+}
+

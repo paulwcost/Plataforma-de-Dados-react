@@ -1,0 +1,11 @@
+{
+  "titulo": "Sobre o Projeto",
+  "descricao": "A Plataforma de Dados sobre Espécies Nativas é uma iniciativa dedicada à pesquisa, conservação e divulgação de informações sobre a flora local. Nosso objetivo é promover o conhecimento científico e apoiar ações de preservação ambiental.",
+  "missao": "Promover a conservação da biodiversidade por meio da pesquisa, educação e engajamento comunitário.",
+  "instituicoes": [
+    "Universidade Federal do Meio Ambiente",
+    "Instituto de Botânica do Brasil",
+    "ONG Verde Vida"
+  ],
+  "responsaveis": "Equipe multidisciplinar formada por biólogos, ecólogos, desenvolvedores e educadores ambientais."
+}

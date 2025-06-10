@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import HeaderFooterLayout from '../components/HeaderFooterLayout';
 
 function Contato() {
   const [contato, setContato] = useState(null);
@@ -10,9 +11,8 @@ function Contato() {
   }, []);
 
   return (
-    <div className="contato-container">
+    <HeaderFooterLayout pageTitle={contato?.titulo || 'Contato'}>
       <div className="contato-header">
-        <h1>{contato?.titulo}</h1>
         <p>{contato?.descricao}</p>
       </div>
       <div className="form-container">
@@ -40,7 +40,7 @@ function Contato() {
           ))}
         </ul>
       </div>
-    </div>
+    </HeaderFooterLayout>
   );
 }
 

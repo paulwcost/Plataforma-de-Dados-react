@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import HeaderFooterLayout from '../components/HeaderFooterLayout';
 
 function Metodologia() {
   const [metodologia, setMetodologia] = useState(null);
@@ -10,15 +11,16 @@ function Metodologia() {
   }, []);
 
   return (
-    <div className="metodologia-container">
-      <h1>{metodologia?.titulo}</h1>
-      {metodologia?.paragrafos?.map((p, idx) => (
-        <p key={idx}>{p}</p>
+    <HeaderFooterLayout pageTitle={metodologia?.titulo || 'Metodologia'}>
+      <p>{metodologia?.descricao}</p>
+      {metodologia?.etapas?.map((etapa, idx) => (
+        <div key={idx} style={{marginBottom: 16}}>
+          <h3>{etapa.titulo}</h3>
+          <p>{etapa.descricao}</p>
+        </div>
       ))}
-      {metodologia?.links?.map((l, idx) => (
-        <a key={idx} href={l.href}>{l.texto}</a>
-      ))}
-    </div>
+      <p><strong>{metodologia?.mensagem_final}</strong></p>
+    </HeaderFooterLayout>
   );
 }
 

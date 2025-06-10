@@ -1,0 +1,9 @@
+{
+  "titulo": "Fale Conosco",
+  "descricao": "Entre em contato conosco para dúvidas, sugestões ou parcerias. Preencha o formulário abaixo ou utilize as informações de contato.",
+  "informacoes": [
+    { "texto": "E-mail: contato@plataformadados.com", "href": "mailto:contato@plataformadados.com" },
+    { "texto": "Telefone: (11) 99999-9999", "href": "tel:+5511999999999" },
+    { "texto": "Endereço: Rua das Flores, 123, Centro, Cidade/UF", "href": "https://maps.google.com" }
+  ]
+}
