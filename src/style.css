@@ -846,9 +846,10 @@ ul {
 /* Container dos cards */
 .familias-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+    padding: 0 2px 12px 2px;
 }
 
 /* Estilização dos cards */
@@ -856,7 +857,7 @@ ul {
     background-color: #f8f9fa;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 10px 2px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
 }
@@ -864,7 +865,7 @@ ul {
 .card h3 {
     margin: 0;
     color: #333;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .card:hover {
@@ -1474,91 +1475,204 @@ section#lista-familias .card {
     to { opacity: 1; transform: none; }
 }
 
-/* RESPONSIVIDADE GLOBAL */
-@media (max-width: 1024px) {
-  header, .container, .contato-container, .cadastro-container, .metodologia-container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .familias-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+/* --- AJUSTES DE ORGANIZAÇÃO E TAMANHOS PARA UM LAYOUT IMPECÁVEL --- */
+
+/* Centralização e espaçamento global */
+main, .metodologia-container, .sobre, .contato-container, .catalogo, .familias-container {
+  max-width: 1100px;
+  margin: 32px auto 32px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0001;
 }
 
 @media (max-width: 900px) {
-  .categoria_personas {
-    flex-direction: column;
-    gap: 20px;
-    align-items: stretch;
+  main, .metodologia-container, .sobre, .contato-container, .catalogo, .familias-container {
+    max-width: 98vw;
+    padding: 18px 6px;
+    margin: 18px auto;
   }
-  .category {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .container table {
-    min-width: 400px;
+}
+@media (max-width: 600px) {
+  main, .metodologia-container, .sobre, .contato-container, .catalogo, .familias-container {
+    padding: 8px 2vw;
+    border-radius: 8px;
+    margin: 8px auto;
   }
 }
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    padding: 10px 5px;
-    gap: 10px;
-  }
-  .logo {
-    flex-direction: column;
-    gap: 5px;
-    font-size: 18px;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-  .banner h1 {
-    font-size: 1.5rem;
-  }
-  .banner p {
-    font-size: 1rem;
-  }
-  .destaques {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .card {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .colaborador .section {
-    padding: 10px 0;
-  }
-  .familias-container {
-    grid-template-columns: 1fr;
-  }
+/* Títulos principais */
+h1 {
+  font-size: 2.3rem;
+  margin-bottom: 18px;
+  color: #1b5e20;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 18px 0 10px 0;
+  color: #388e3c;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 10px 0 6px 0;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* Parágrafos e textos */
+p, li, label, input, textarea, button {
+  font-size: 1.08rem;
+  line-height: 1.6;
 }
 
 @media (max-width: 600px) {
-  .container, .contato-container, .cadastro-container, .metodologia-container {
-    padding: 5px;
-    max-width: 100vw;
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 1rem; }
+  p, li, label, input, textarea, button { font-size: 0.98rem; }
+}
+
+/* Grid de cards e quadros */
+.grid-especies, .familias-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .grid-especies, .familias-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .card, .category {
-    padding: 10px;
-    font-size: 0.95em;
+}
+
+.card, .quadro, .category {
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 18px 12px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover, .quadro:hover, .category:hover {
+  box-shadow: 0 6px 18px #0002;
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Imagens responsivas nos cards */
+.card img, .quadro img {
+  max-width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Formulários */
+.input-group input, .input-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #bdbdbd;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Botões principais */
+.botao, .btn, .login-btn {
+  background: linear-gradient(90deg, #43A047 60%, #1B5E20 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.botao:hover, .btn:hover, .login-btn:hover {
+  background: linear-gradient(90deg, #388e3c 60%, #1B5E20 100%);
+  transform: scale(1.04);
+}
+
+/* Footer sempre centralizado e discreto */
+footer {
+  text-align: center;
+  margin-top: 32px;
+  padding: 18px 0 0 0;
+  color: #888;
+  font-size: 1rem;
+  background: none;
+}
+
+/* FLORA BRASIL - AJUSTE DE QUADROS MAIS COMPACTO */
+.familias-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+  padding: 0 8px 24px 8px;
+}
+.familias-container .card {
+  width: 100%;
+  min-height: 70px;
+  max-width: 100%;
+  margin: 0;
+  padding: 14px 6px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0001;
+  background: #f8f9fa;
+  transition: box-shadow 0.2s, transform 0.2s;
+  text-align: center;
+  word-break: break-word;
+  font-weight: 600;
+  color: #2E7D32;
+}
+.familias-container .card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #2E7D32;
+  font-weight: 700;
+}
+.familias-container .card:hover {
+  box-shadow: 0 6px 18px #0002;
+  transform: translateY(-2px) scale(1.03);
+  background: #e8f5e9;
+}
+@media (max-width: 900px) {
+  .familias-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 2px 12px 2px;
   }
-  .banner h1 {
-    font-size: 1.1rem;
+}
+@media (max-width: 600px) {
+  .familias-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 0 1px 6px 1px;
   }
-  .banner p {
-    font-size: 0.95rem;
-  }
-  .input-group input, .input-group textarea {
-    font-size: 0.9em;
-  }
-  .botao, .btn, .login-btn {
-    font-size: 0.95em;
-    padding: 8px 12px;
+  .familias-container .card {
+    font-size: 0.92rem;
+    padding: 8px 2px;
   }
 }
 

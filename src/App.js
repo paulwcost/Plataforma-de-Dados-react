@@ -10,6 +10,8 @@ import Contato from './pages/Contato';
 import Sobre from './pages/Sobre';
 import AdminLogin from './pages/AdminLogin';
 import Home from './pages/Home';
+import PaginaVisitante from './pages/PaginaVisitante';
+import PaginaPesquisadores from './pages/PaginaPesquisadores';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/contato" element={<Contato />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/admin_login" element={<AdminLogin />} />
+          <Route path="/pagina-visitante" element={<PaginaVisitante />} />
+          <Route path="/pagina-pesquisadores" element={<PaginaPesquisadores />} />
           {/* Outras rotas serão adicionadas aqui */}
         </Routes>
       </div>
