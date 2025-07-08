@@ -19,7 +19,7 @@ function AdminLogin() {
   return (
     <div className="admin-login-container">
       <div className="login-icone">
-        <img src="/img/logo.png" alt="Logo" />
+        <img src="/img/logo.png" alt="Logo da Plataforma de Dados sobre Espécies Nativas" />
       </div>
       <h1>Admin Login</h1>
       {erro && <div className="mensagem-erro">{erro}</div>}

@@ -19,7 +19,7 @@ function Catalogo() {
       <div className="grid-especies">
         {especies.map((esp, idx) => (
           <div className="quadro" key={idx}>
-            <img src={esp.imagem?.replace('./img', '/img')} alt={esp.nome} />
+            <img src={esp.imagem?.replace('./img', '/img')} alt={esp.nome} loading="lazy" />
             <h3>{esp.nome}</h3>
             <p>{esp.descricao}</p>
           </div>

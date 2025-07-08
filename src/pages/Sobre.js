@@ -28,7 +28,7 @@ function Sobre() {
       <section className="responsaveis">
         <h2>Responsáveis</h2>
         <div className="responsavel">
-          <img src="/img/sobre-equipe.jpg" alt="Equipe" />
+          <img src="/img/sobre-equipe.jpg" alt="Equipe de desenvolvimento do projeto" />
           <div>
             <h3>Equipe de Desenvolvimento</h3>
             <p>{sobre?.responsaveis}</p>

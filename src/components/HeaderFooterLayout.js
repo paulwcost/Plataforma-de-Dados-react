@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import BrowserRecommendationBar from './BrowserRecommendationBar';
 
 export default function HeaderFooterLayout({ children, pageTitle }) {
   const [header, setHeader] = useState(null);
@@ -16,9 +17,10 @@ export default function HeaderFooterLayout({ children, pageTitle }) {
 
   return (
     <div>
+      <BrowserRecommendationBar />
       <header>
         <div className="logo">
-          <img id="logo_img" src={header?.logo_url?.replace('./img', '/img')} alt="imagem_logo" />
+          <img id="logo_img" src={header?.logo_url?.replace('./img', '/img')} alt="Logo da Plataforma de Dados sobre Espécies Nativas" />
           <span id="titulo-site">{header?.titulo_site}</span>
         </div>
         <nav>
