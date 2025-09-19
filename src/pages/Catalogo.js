@@ -13,7 +13,10 @@ function Catalogo() {
   }, []);
 
   return (
-    <HeaderFooterLayout pageTitle="Catálogo de Espécies">
+    <HeaderFooterLayout 
+      title="Catálogo de Espécies Nativas | Plataforma de Dados"
+      description="Navegue por nosso catálogo de espécies nativas do Brasil. Encontre informações detalhadas, descrições e imagens da flora brasileira."
+    >
       <p>Veja as principais espécies nativas catalogadas.</p>
       {erro && <p style={{color:'red'}}>{erro}</p>}
       <div className="grid-especies">

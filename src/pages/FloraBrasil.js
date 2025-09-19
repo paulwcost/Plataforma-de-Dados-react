@@ -20,7 +20,10 @@ function FloraBrasil() {
   const familiasPagina = familias.slice(inicio, fim);
 
   return (
-    <HeaderFooterLayout pageTitle="Flora Brasil">
+    <HeaderFooterLayout 
+      title="Famílias da Flora do Brasil | Plataforma de Dados"
+      description="Explore as famílias de espécies da flora brasileira. Navegue em nossa lista e descubra a diversidade botânica do Brasil."
+    >
       {erro && <p style={{color:'red'}}>{erro}</p>}
       <div className="familias-container">
         {familiasPagina.map(familia => (

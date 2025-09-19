@@ -11,7 +11,10 @@ function Contato() {
   }, []);
 
   return (
-    <HeaderFooterLayout pageTitle={contato?.titulo || 'Contato'}>
+    <HeaderFooterLayout 
+      title="Entre em Contato Conosco | Plataforma de Dados"
+      description="Fale com a equipe da Plataforma de Dados. Envie suas dúvidas, sugestões ou propostas de colaboração através do nosso formulário de contato."
+    >
       <div className="contato-header">
         <p>{contato?.descricao}</p>
       </div>

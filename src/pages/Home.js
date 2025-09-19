@@ -29,6 +29,8 @@ function Home() {
 
   return (
     <div>
+      <title>Plataforma de Dados de Espécies Nativas | Início</title>
+      <meta name="description" content="Explore dados e informações sobre espécies nativas do Brasil. Nossa plataforma conecta pesquisadores e o público geral à biodiversidade brasileira." />
       <BrowserRecommendationBar />
       <header>
         <div className="logo">
@@ -59,7 +61,7 @@ function Home() {
         ))}
       </section>
       <section className="colaborador">
-        <h1 id="colab-titulo">{colaborador?.titulo}</h1>
+        <h2 id="colab-titulo">{colaborador?.titulo}</h2>
         <section className="section">
           <p id="colab-descricao">{colaborador?.descricao}</p>
           <div className="categoria_personas" id="categorias-section">

@@ -9,7 +9,10 @@ function PaginaVisitante() {
       .then(setDados);
   }, []);
   return (
-    <HeaderFooterLayout pageTitle={dados?.titulo || 'Visitantes'}>
+    <HeaderFooterLayout 
+      title="Guia para Visitantes | Plataforma de Dados"
+      description="É um entusiasta da flora brasileira? Saiba como você pode usar nossa plataforma para explorar dados, aprender sobre espécies e contribuir para a ciência."
+    >
       <p>{dados?.descricao}</p>
     </HeaderFooterLayout>
   );

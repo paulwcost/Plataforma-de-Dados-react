@@ -11,7 +11,10 @@ function Sobre() {
   }, []);
 
   return (
-    <HeaderFooterLayout pageTitle={sobre?.titulo || 'Sobre'}>
+    <HeaderFooterLayout 
+      title={sobre?.titulo ? `${sobre.titulo} | Plataforma de Dados` : 'Sobre a Plataforma de Dados'}
+      description={sobre?.descricao || 'Conheça a missão, as instituições envolvidas e os responsáveis pela Plataforma de Dados de Espécies Nativas.'}
+    >
       <p>{sobre?.descricao}</p>
       <section className="missao">
         <h2>Missão</h2>

@@ -11,7 +11,10 @@ function Metodologia() {
   }, []);
 
   return (
-    <HeaderFooterLayout pageTitle={metodologia?.titulo || 'Metodologia'}>
+    <HeaderFooterLayout 
+      title="Nossa Metodologia de Coleta de Dados | Plataforma de Dados"
+      description="Entenda como coletamos, processamos e disponibilizamos os dados em nossa plataforma. Conheça as etapas e a tecnologia por trás do nosso trabalho."
+    >
       <p>{metodologia?.descricao}</p>
       {metodologia?.etapas?.map((etapa, idx) => (
         <div key={idx} style={{marginBottom: 16}}>

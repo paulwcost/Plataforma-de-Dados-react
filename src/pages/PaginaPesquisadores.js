@@ -9,7 +9,10 @@ function PaginaPesquisadores() {
       .then(setDados);
   }, []);
   return (
-    <HeaderFooterLayout pageTitle={dados?.titulo || 'Pesquisadores'}>
+    <HeaderFooterLayout 
+      title="Recursos para Pesquisadores | Plataforma de Dados"
+      description="Você é um pesquisador? Descubra como acessar nosso banco de dados, utilizar nossas ferramentas e colaborar com a Plataforma de Dados de Espécies Nativas."
+    >
       <p>{dados?.descricao}</p>
     </HeaderFooterLayout>
   );

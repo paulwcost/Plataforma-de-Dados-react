@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BrowserRecommendationBar from './BrowserRecommendationBar';
 
-export default function HeaderFooterLayout({ children, pageTitle }) {
+export default function HeaderFooterLayout({ children, title, description }) {
   const [header, setHeader] = useState(null);
   const [footer, setFooter] = useState('');
 
@@ -17,6 +17,8 @@ export default function HeaderFooterLayout({ children, pageTitle }) {
 
   return (
     <div>
+      <title>{title}</title>
+      <meta name="description" content={description} />
       <BrowserRecommendationBar />
       <header>
         <div className="logo">
@@ -32,7 +34,7 @@ export default function HeaderFooterLayout({ children, pageTitle }) {
         </nav>
       </header>
       <main>
-        <h1>{pageTitle}</h1>
+        <h1>{title}</h1>
         {children}
       </main>
       <footer>
