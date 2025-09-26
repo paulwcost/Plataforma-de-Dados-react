@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Espécies Nativas | Plataforma de Dados</title>
+    <meta name="description" content="Pesquise espécies nativas do Brasil por palavra-chave. Plataforma de Dados: informações detalhadas e colaboração para conservação. Explore agora!">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img id="logo_img" src="./img/logo.png" alt="Logotipo da Plataforma de Dados de Espécies Nativas do Brasil" loading="lazy">
+            <span id="titulo-site"></span>
+        </div>
+        <nav class="main-nav">
+            <ul id="menu-links"></ul>
+            <form id="search-form">
+                <input type="text" id="search-keyword" name="search-keyword" placeholder="Buscar palavra-chave...">
+                <button type="submit">Pesquisar</button>
+            </form>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="banner">
+        <h1>Estratégias para Conservação da Flora Endêmica</h1>
+        <p>Conheça uma síntese das espécies nativas e descubra como colaborar para sua preservação.</p>
+        <!-- Barra de pesquisa movida para o header -->
+    </section>
+    
+    <section class="destaques" id="destaques-section">
+        <!-- Cards carregados via JS -->
+    </section>
+
+    <section class="colaborador">
+        <h2 id="colab-titulo"></h2>
+        <section class="section">
+            <p id="colab-descricao"></p>
+            <div class="categoria_personas" id="categorias-section">
+                <!-- Categorias via JS -->
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <p id="footer-texto"></p>
+    </footer>
+
+</body>
+</html>

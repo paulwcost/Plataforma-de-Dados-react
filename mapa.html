@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Georreferenciado | Plataforma de Dados de Espécies Nativas</title>
+  <meta name="description" content="Visualize e gerencie pontos georreferenciados de espécies nativas do Brasil. Apenas administradores podem adicionar novos pontos.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img id="logo_img" src="./img/logo.png" alt="Logotipo da Plataforma de Dados de Espécies Nativas do Brasil" loading="lazy">
+      <span id="titulo-site">Mapa Georreferenciado</span>
+    </div>
+    <nav class="main-nav">
+      <ul id="menu-links"></ul>
+      <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Mapa Georreferenciado</h1>
+    <div class="info" id="infoMsg"></div>
+    <div id="map" style="height: 70vh; width: 100%; border: 1px solid #ccc; margin-top: 20px;"></div>
+  </main>
+
+  <footer>
+    <p id="footer-texto">&copy; 2025 Plataforma de Dados sobre Espécies Nativas - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    let map;
+
+    // Define o ícone customizado para os marcadores
+    const treeIcon = {
+      url: 'img/arvore.png',
+      scaledSize: new google.maps.Size(40, 40)
+    };
+
+    // Função para adicionar um marcador no mapa
+    function addMarker(location, nome, descricao) {
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: nome,
+        icon: treeIcon
+      });
+
+      const contentString = `<strong>${nome}</strong><br>${descricao}`;
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      marker.addListener('click', () => {
+        infowindow.open(map, marker);
+      });
+    }
+
+    async function initMap() {
+      // Cria o mapa, centralizado em Assis Chateaubriand
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -24.3836, lng: -53.5183 },
+        zoom: 12,
+      });
+
+      // Busca os dados das espécies no backend
+      try {
+        const response = await fetch('/especies-locais');
+        if (!response.ok) {
+          throw new Error('Falha ao buscar dados das espécies.');
+        }
+        const especies = await response.json();
+        
+        // Adiciona os marcadores para cada espécie
+        especies.forEach(especie => {
+          if (especie.latitude && especie.longitude) {
+            const location = { lat: especie.latitude, lng: especie.longitude };
+            addMarker(location, especie.nome_popular, especie.nome_cientifico);
+          }
+        });
+      } catch (error) {
+        console.error("Erro ao carregar as espécies:", error);
+        document.getElementById('infoMsg').textContent = "Não foi possível carregar os pontos no mapa.";
+      }
+
+
+      // Lógica para administradores
+      const isAdmin = localStorage.getItem('userRole') === 'admin';
+      if (isAdmin) {
+        document.getElementById('infoMsg').textContent = "Clique no mapa para adicionar um novo ponto.";
+        
+        map.addListener("click", (e) => {
+          const nome = prompt("Digite o nome da espécie:");
+          if (!nome) return; // Cancela se o nome não for inserido
+
+          const descricao = prompt("Digite a descrição da espécie:");
+          if (!descricao) return; // Cancela se a descrição não for inserida
+
+          // Adiciona o novo marcador no mapa
+          addMarker(e.latLng, nome, descricao);
+        });
+      } else {
+        document.getElementById('infoMsg').textContent = "Visualizando pontos de espécies. Apenas administradores podem adicionar novos pontos.";
+      }
+    }
+  </script>
+
+  <!-- Substitua SUA_API_KEY pela sua chave da API Google Maps -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHbGwLDwUK6rPS6EXiXRU2IXD9ns3CLhw&callback=initMap"></script>
+</body>
+</html>

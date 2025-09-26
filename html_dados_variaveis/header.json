@@ -1,0 +1,30 @@
+{
+    "logo_url": "./img/logo.png",
+    "titulo_site": "Plataforma de Dados sobre Espécies Arbóreas Nativas",
+    "menu_links": [
+        {
+            "texto": "Início",
+            "href": "index.html"
+        },
+        {
+            "texto": "Flora Brasil",
+            "href": "flora_brasil.html"
+        },
+        {
+            "texto": "Catálogo",
+            "href": "catalogo.html"
+        },
+        {
+            "texto": "Metodologia",
+            "href": "metodologia.html"
+        },
+        {
+            "texto": "Contato",
+            "href": "contato.html"
+        },
+        {
+            "texto": "Sobre",
+            "href": "sobre.html"
+        }
+    ]
+}
