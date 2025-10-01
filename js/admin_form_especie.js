@@ -16,7 +16,7 @@ if (idEspecieEditando) {
 
 async function preencherFormularioParaEdicao(id) {
     try {
-        const response = await fetch(`https://plataforma-de-dados-com-login.onrender.com/especies-locais/${id}`);
+        const response = await fetch(`/especies-locais/${id}`);
         if (!response.ok) throw new Error("Erro ao buscar dados.");
 
         const especie = await response.json();
@@ -45,62 +45,58 @@ formCadastro.addEventListener('submit', async function (event) {
 
     const metodo = dadosEspecie.id ? 'PUT' : 'POST';
     const url = dadosEspecie.id
-        ? `/especies-locais/${dadosEspecie.id}`
-        : '/especies-locais';
+        ? `http://localhost:3000/especies-locais/${dadosEspecie.id}`
+        : 'http://localhost:3000/especies-locais';
 
     try {
         const response = await fetch(url, {
             method: metodo,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + (localStorage.getItem('authToken'))
             },
-            body: JSON.stringify(dadosEspecie)
+            body: JSON.stringify(dadosEspecie),
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Erro ${response.status}: ${errorData.message || 'Erro desconhecido'}`);
+            throw new Error(`Erro na requisição: ${response.statusText}`);
         }
 
-        alert(dadosEspecie.id ? "Espécie atualizada com sucesso!" : "Espécie cadastrada com sucesso!");
-        localStorage.removeItem('idEspecieEditando');
-        formCadastro.reset();
-        window.location.href = "admin_lista_especies.html";
-
+        const resultado = await response.json();
+        alert('Espécie salva com sucesso!');
+        window.location.href = '/admin_lista_especies.html';
     } catch (error) {
         console.error('Erro ao salvar espécie:', error);
-        alert(`Erro: ${error.message}`);
+        alert('Erro ao salvar espécie. Verifique os dados e tente novamente.');
     }
 });
 
-// --- Lógica do Mapa ---
+// --- Lógica do Mapa com Leaflet ---
 
 function initAdminMap() {
-    map = new google.maps.Map(document.getElementById("mapContainer"), {
-        center: { lat: -24.3836, lng: -53.5183 }, // Centro em Assis Chateaubriand
-        zoom: 12,
-    });
+    map = L.map('mapContainer').setView([-24.3836, -53.5183], 13); // Centro em Assis Chateaubriand
 
-    map.addListener("click", (e) => {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    map.on('click', function(e) {
         if (marker) {
-            marker.setMap(null); // Remove marcador anterior
+            map.removeLayer(marker);
         }
-        marker = new google.maps.Marker({
-            position: e.latLng,
-            map: map,
-        });
-        selectedCoords = e.latLng.toJSON();
+        marker = L.marker(e.latlng).addTo(map);
+        selectedCoords = e.latlng;
     });
 }
 
 btnSelecionarLocalizacao.addEventListener('click', () => {
     mapModal.style.display = 'block';
-    if (map) {
-        // Centraliza o mapa se ele já foi inicializado
-        const center = new google.maps.LatLng(-24.3836, -53.5183);
-        map.setCenter(center);
+    if (!map) {
+        initAdminMap();
     }
+    // Invalidate map size to fix rendering issues in modal
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 10);
 });
 
 closeButton.addEventListener('click', () => {

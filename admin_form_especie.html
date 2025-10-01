@@ -99,11 +99,13 @@
             Plataforma de dados sobre espécies nativas
         </div>
         <nav class="main-nav">
-            <ul id="menu-links">
-                <li><a href="index.html">Inicial</a></li>
-                <li><a href="admin_dashboard.html">Painel Administrativo</a></li>
-                <li><a href="#" id="logout-link">Logout</a></li>
-            </ul>
+            <div id="nav-content">
+                <ul id="menu-links">
+                    <li><a href="index.html">Inicial</a></li>
+                    <li><a href="admin_dashboard.html">Painel Administrativo</a></li>
+                    <li><a href="#" id="logout-link">Logout</a></li>
+                </ul>
+            </div>
             <div class="menu-toggle">
                 <span></span>
                 <span></span>
@@ -197,10 +199,9 @@
             };
         }
     </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="js/admin_form_especie.js"></script>
     <script defer src="js/script.js"></script>
-    <!-- Substitua SUA_API_KEY pela sua chave da API Google Maps -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHbGwLDwUK6rPS6EXiXRU2IXD9ns3CLhw&callback=initAdminMap"></script>
-
 </body>
 </html>

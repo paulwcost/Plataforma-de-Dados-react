@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navContent = document.getElementById('nav-content');
+
+    if (menuToggle && navContent) {
+        menuToggle.addEventListener('click', function () {
+            navContent.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    } else {
+        console.warn('Menu toggle or nav content not found on this page.');
+    }
+
+    // demove o segundo listener e chama a função aqui
+    carregarDados();
+
     // Busca por palavra-chave
     const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search-keyword");
@@ -93,7 +108,7 @@ async function exibirEspeciesDaFamilia(familia) {
             especiesList.appendChild(div);
         });
     } catch (err) {
-        especiesList.innerHTML = `<p style=\"color:red\">Erro ao buscar espécies: ${err.message}</p>`;
+        especiesList.innerHTML = `<p style="color:red">Erro ao buscar espécies: ${err.message}</p>`;
     }
 }
 
@@ -270,15 +285,3 @@ async function carregarDados() {
     if (document.getElementById("footer-texto"))
         document.getElementById("footer-texto").innerHTML = footer.texto;
 }
-
-document.addEventListener("DOMContentLoaded", carregarDados);
-
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuLinks = document.getElementById('menu-links');
-
-    if (menuToggle && menuLinks) {
-        menuToggle.addEventListener('click', function () {
-            menuLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
